@@ -1,0 +1,33 @@
+@echo off
+python run_longExp.py ^
+  --is_training 1 ^
+  --root_path E:/LTSF/all_datasets/weather/ ^
+  --data_path weather.csv ^
+  --model_id weather_96_hicr ^
+  --model HiCRMamba ^
+  --data custom ^
+  --features M ^
+  --seq_len 96 ^
+  --label_len 48 ^
+  --pred_len 96 ^
+  --enc_in 21 ^
+  --dec_in 21 ^
+  --c_out 21 ^
+  --d_model 64 ^
+  --d_ff 128 ^
+  --e_layers 2 ^
+  --patch_len 16 ^
+  --stride 8 ^
+  --pm_variant channel_recent ^
+  --pm_d_state 16 ^
+  --pm_expand 2 ^
+  --pm_d_conv 3 ^
+  --pm_bidirectional 1 ^
+  --pm_residual_scale 0.5 ^
+  --pm_recent_k 3 ^
+  --pm_channel_rank 8 ^
+  --batch_size 32 ^
+  --learning_rate 0.0001 ^
+  --train_epochs 20 ^
+  --patience 3 ^
+  --itr 1

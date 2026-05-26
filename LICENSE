@@ -1,0 +1,43 @@
+License Notice
+==============
+
+This repository is a minimal research-code release for HiCR-Mamba.
+
+The newly added HiCR-Mamba model components and release-specific files are
+provided by Jianing Long for academic research use under the MIT License terms
+below.
+
+Parts of this repository are adapted from the PatchTST supervised forecasting
+framework:
+
+  PatchTST: "A Time Series is Worth 64 Words: Long-term Forecasting with
+  Transformers" (ICLR 2023)
+  Official repository: https://github.com/yuqinie98/PatchTST
+
+Please also respect the license and citation requirements of PatchTST and its
+upstream dependencies. If you require a fully independent release with no
+PatchTST framework files, refactor the training loop and data loaders before
+redistribution.
+
+MIT License terms for newly added HiCR-Mamba code
+------------------------------------------------
+
+Copyright (c) 2026 Jianing Long
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of the newly added HiCR-Mamba software components and associated documentation
+files (the "Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish, distribute,
+sublicense, and/or sell copies of the Software, and to permit persons to whom
+the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

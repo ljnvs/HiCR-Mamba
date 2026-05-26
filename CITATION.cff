@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated HiCR-Mamba paper when available."
+title: "HiCR-Mamba: Channel-Recent State Modeling for High-Dimensional Forecasting"
+authors:
+  - family-names: Long
+    given-names: Jianing
+    orcid: "https://orcid.org/0009-0000-0074-7786"
+year: 2026
+repository-code: "https://github.com/ljnvs/HiCR-Mamba"
+license: MIT
