@@ -99,18 +99,6 @@ Electricity uses `--enc_in 321 --dec_in 321 --c_out 321`. Traffic uses `--enc_in
 - The code is based on the PatchTST supervised training framework, with a new HiCR-Mamba model added.
 - Results are saved under `results/`, `test_results/`, and `checkpoints/` when training is run.
 
-## Citation
-
-If you use this code, please cite the associated paper once available:
-
-```bibtex
-@article{long2026hicrmamba,
-  title  = {HiCR-Mamba: Channel-Recent State Modeling for High-Dimensional Forecasting},
-  author = {Long, Jianing},
-  year   = {2026}
-}
-```
-
 ## License
 
-The newly added HiCR-Mamba components are released under the MIT terms in `LICENSE`. The training framework is adapted from PatchTST; please also respect the original PatchTST project and cite it when using this code.
+The newly added HiCR-Mamba components are released under the MIT terms in `LICENSE`. The training framework is adapted from PatchTST; please also respect the original PatchTST project's license and attribution requirements when using this code.
