@@ -108,6 +108,15 @@ Electricity uses `--enc_in 321 --dec_in 321 --c_out 321`. Traffic uses `--enc_in
 - The code is based on the PatchTST supervised training framework, with a new HiCR-Mamba model added.
 - Results are saved under `results/`, `test_results/`, and `checkpoints/` when training is run.
 
+## Acknowledgements
+
+This release adapts the training loop, data loading utilities and several helper layers from the PatchTST supervised codebase. We thank the PatchTST authors for releasing their implementation:
+
+- PatchTST: A Time Series is Worth 64 Words: Long-term Forecasting with Transformers
+- Official repository: https://github.com/yuqinie98/PatchTST
+
+The HiCR-Mamba backbone and Channel-Recent Adapter are newly added in this repository.
+
 ## License
 
 The newly added HiCR-Mamba components are released under the MIT terms in `LICENSE`. The training framework is adapted from PatchTST; please also respect the original PatchTST project's license and attribution requirements when using this code.
