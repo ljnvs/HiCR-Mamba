@@ -1,9 +1,9 @@
 License Notice
 ==============
 
-This repository is a minimal research-code release for HiCR-Mamba.
+This repository contains the research-code implementation for HiCR-Mamba.
 
-The newly added HiCR-Mamba model components and release-specific files are
+The newly added HiCR-Mamba model components and project-specific files are
 provided by Jianing Long for academic research use under the MIT License terms
 below.
 
@@ -15,8 +15,8 @@ framework:
   Official repository: https://github.com/yuqinie98/PatchTST
 
 Please also respect the license and citation requirements of PatchTST and its
-upstream dependencies. If you require a fully independent release with no
-PatchTST framework files, refactor the training loop and data loaders before
+upstream dependencies. If you require a codebase with no PatchTST-derived
+framework files, refactor the training loop and data loaders before
 redistribution.
 
 MIT License terms for newly added HiCR-Mamba code

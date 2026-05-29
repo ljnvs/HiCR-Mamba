@@ -2,7 +2,7 @@
 
 HiCR-Mamba is an attention-free patch state model for high-dimensional multivariate time series forecasting. It replaces the PatchTST Transformer encoder with a Mamba-style selective patch state mixer and introduces a Channel-Recent Adapter for high-dimensional variables.
 
-This repository is a minimal, reproducible release extracted from the experimental workspace. It keeps only the files required to train and evaluate HiCR-Mamba. The training/data framework is adapted from the PatchTST supervised codebase, while the HiCR-Mamba model components are newly added.
+This repository provides the research implementation, training scripts and benchmark data used for HiCR-Mamba. The training/data framework is adapted from the PatchTST supervised codebase, while the HiCR-Mamba backbone and Channel-Recent Adapter are newly added.
 
 ## Model
 
