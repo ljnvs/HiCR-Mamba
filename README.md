@@ -42,17 +42,24 @@ The code was developed with PyTorch and tested locally on a single NVIDIA RTX 40
 
 ## Data
 
-Download or prepare the standard forecasting datasets separately. This release does not include datasets.
+This release includes gzip-compressed copies of the public forecasting benchmark files used in the paper:
 
-Expected local layout examples:
+- Weather
+- Electricity
+- Traffic
+- ETT-small: ETTh1, ETTh2, ETTm1 and ETTm2
 
 ```text
-E:/LTSF/all_datasets/weather/weather.csv
-E:/LTSF/all_datasets/electricity/electricity.csv
-E:/LTSF/all_datasets/traffic/traffic.csv
+datasets/weather/weather.csv.gz
+datasets/electricity/electricity.csv.gz
+datasets/traffic/traffic.csv.gz
+datasets/ETT-small/ETTh1.csv.gz
+datasets/ETT-small/ETTh2.csv.gz
+datasets/ETT-small/ETTm1.csv.gz
+datasets/ETT-small/ETTm2.csv.gz
 ```
 
-Adjust `--root_path` and `--data_path` in the commands below for your machine.
+The files are stored as `.csv.gz` so that large datasets such as Traffic stay below GitHub's ordinary file-size limit. The data loader uses `pandas.read_csv`, which can read gzip-compressed CSV files directly. You may therefore pass `--data_path weather.csv.gz`, or decompress the files locally and use the corresponding `.csv` names.
 
 ## Example Training Commands
 
@@ -61,8 +68,8 @@ Weather, horizon 96:
 ```bash
 python run_longExp.py ^
   --is_training 1 ^
-  --root_path E:/LTSF/all_datasets/weather/ ^
-  --data_path weather.csv ^
+  --root_path datasets/weather/ ^
+  --data_path weather.csv.gz ^
   --model_id weather_96_hicr ^
   --model HiCRMamba ^
   --data custom ^

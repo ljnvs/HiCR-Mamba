@@ -1,8 +1,8 @@
 @echo off
 python run_longExp.py ^
   --is_training 1 ^
-  --root_path E:/LTSF/all_datasets/weather/ ^
-  --data_path weather.csv ^
+  --root_path datasets/weather/ ^
+  --data_path weather.csv.gz ^
   --model_id weather_96_hicr ^
   --model HiCRMamba ^
   --data custom ^

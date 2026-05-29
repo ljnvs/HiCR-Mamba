@@ -24,4 +24,4 @@ Thumbs.db
 .idea/
 
 data/
-datasets/
+datasets/**/*.csv
