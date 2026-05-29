@@ -47,7 +47,9 @@ parser.add_argument('--kernel_size', type=int, default=25, help='decomposition-k
 parser.add_argument('--individual', type=int, default=0, help='individual head; True 1 False 0')
 
 # HiCR-Mamba
-parser.add_argument('--pm_variant', type=str, default='base', help='HiCR-Mamba structure variant')
+parser.add_argument('--pm_variant', type=str, default='base',
+                    choices=['base', 'hicr', 'channel_recent', 'channel_gate', 'recent_state'],
+                    help='HiCR-Mamba variant; hicr is the full Channel-Recent Adapter model')
 parser.add_argument('--pm_d_state', type=int, default=16, help='HiCR-Mamba selective state size')
 parser.add_argument('--pm_expand', type=int, default=2, help='HiCR-Mamba inner expansion ratio')
 parser.add_argument('--pm_d_conv', type=int, default=3, help='HiCR-Mamba depthwise temporal conv kernel')
@@ -55,7 +57,7 @@ parser.add_argument('--pm_bidirectional', type=int, default=1, help='HiCR-Mamba 
 parser.add_argument('--pm_residual_scale', type=float, default=0.5, help='HiCR-Mamba initial residual branch scale')
 parser.add_argument('--pm_memory_slots', type=int, default=4, help='HiCR-Mamba compressed memory slot count')
 parser.add_argument('--pm_recent_k', type=int, default=3, help='HiCR-Mamba recent patch count')
-parser.add_argument('--pm_channel_rank', type=int, default=8, help='HiCR-Mamba channel-control bottleneck rank')
+parser.add_argument('--pm_channel_rank', type=int, default=8, help='Channel-Controlled State Modulation bottleneck rank')
 
 # Formers 
 parser.add_argument('--embed_type', type=int, default=0, help='0: default 1: value embedding + temporal embedding + positional embedding 2: value embedding + temporal embedding 3: value embedding + positional embedding 4: value embedding')
@@ -76,7 +78,8 @@ parser.add_argument('--dropout', type=float, default=0.05, help='dropout')
 parser.add_argument('--embed', type=str, default='timeF',
                     help='time features encoding, options:[timeF, fixed, learned]')
 parser.add_argument('--activation', type=str, default='gelu', help='activation')
-parser.add_argument('--output_attention', action='store_true', help='whether to output attention in ecoder')
+parser.add_argument('--output_attention', action='store_true',
+                    help='unused compatibility flag; HiCR-Mamba does not output attention')
 parser.add_argument('--do_predict', action='store_true', help='whether to predict unseen future data')
 
 # optimization

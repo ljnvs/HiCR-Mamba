@@ -9,7 +9,7 @@ from layers.PatchTST_layers import series_decomp
 
 
 class Model(nn.Module):
-    """HiCR-Mamba: high-dimensional channel-recent Mamba forecasting model."""
+    """HiCR-Mamba: attention-free patch state forecasting model."""
 
     def __init__(
         self,

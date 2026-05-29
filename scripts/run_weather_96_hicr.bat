@@ -18,7 +18,7 @@ python run_longExp.py ^
   --e_layers 2 ^
   --patch_len 16 ^
   --stride 8 ^
-  --pm_variant channel_recent ^
+  --pm_variant hicr ^
   --pm_d_state 16 ^
   --pm_expand 2 ^
   --pm_d_conv 3 ^

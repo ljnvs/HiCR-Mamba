@@ -24,7 +24,6 @@ class RMSNorm(nn.Module):
 class SelectivePatchMixer(nn.Module):
     """Mamba-style selective state mixer for patch tokens.
 
-    This module is intentionally independent from the old Kimi/KDA prototype.
     It uses a diagonal selective state scan over patch tokens instead of
     Transformer attention.
     """
@@ -178,6 +177,8 @@ class LiteChannelControlAdapter(nn.Module):
 
 
 class ChannelRecentAdapter(nn.Module):
+    """Channel-Recent Adapter used by the full HiCR-Mamba variant."""
+
     def __init__(self, d_model: int, n_vars: int, rank: int, recent_k: int, dropout: float):
         super().__init__()
         self.channel = ChannelControlAdapter(d_model, n_vars, rank, dropout)
@@ -192,13 +193,7 @@ class ChannelRecentAdapter(nn.Module):
 
 
 class TrafficRobustChannelRecentAdapter(nn.Module):
-    """Conservative channel-recent adapter for highly heterogeneous sensors.
-
-    Traffic-336 showed lower MAE but higher MSE with the full channel_recent
-    adapter, suggesting fewer average errors but larger outlier errors. This
-    variant keeps the same mechanism family while reducing modulation strength
-    and adding a local patch smoother to damp squared-error spikes.
-    """
+    """Conservative Channel-Recent Adapter for heterogeneous sensors."""
 
     def __init__(self, d_model: int, n_vars: int, rank: int, recent_k: int, dropout: float):
         super().__init__()
@@ -457,6 +452,7 @@ class HiCRMambaBackbone(nn.Module):
         if self.revin:
             self.revin_layer = RevIN(c_in, affine=affine, subtract_last=subtract_last)
 
+        pm_variant = 'channel_recent' if pm_variant == 'hicr' else pm_variant
         self.patch_len = patch_len
         self.stride = stride
         self.padding_patch = padding_patch

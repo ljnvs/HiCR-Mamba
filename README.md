@@ -1,19 +1,21 @@
 # HiCR-Mamba
 
-HiCR-Mamba is an attention-free patch state model for high-dimensional multivariate time series forecasting. It replaces the PatchTST Transformer encoder with a Mamba-style selective patch state mixer and adds channel-recent control for high-dimensional variables.
+HiCR-Mamba is an attention-free patch state model for high-dimensional multivariate time series forecasting. It replaces the PatchTST Transformer encoder with a Mamba-style selective patch state mixer and introduces a Channel-Recent Adapter for high-dimensional variables.
 
 This repository is a minimal, reproducible release extracted from the experimental workspace. It keeps only the files required to train and evaluate HiCR-Mamba. The training/data framework is adapted from the PatchTST supervised codebase, while the HiCR-Mamba model components are newly added.
 
 ## Model
 
-The released model corresponds to the paper variant:
+The released model corresponds to the full HiCR-Mamba configuration:
 
 - `model`: `HiCRMamba`
-- `pm_variant`: `channel_recent`
+- `pm_variant`: `hicr`
 - Core modules:
-  - selective patch state mixer
-  - channel-controlled state modulation
-  - gated recent-state enhancement
+  - Selective Patch State Mixer
+  - Channel-Controlled State Modulation
+  - Gated Recent-State Enhancement
+
+For component-level checks, `pm_variant=base` uses only the plain selective patch state mixer, `pm_variant=channel_gate` enables Channel-Controlled State Modulation, and `pm_variant=recent_state` enables Gated Recent-State Enhancement.
 
 ## Directory Layout
 
@@ -76,7 +78,7 @@ python run_longExp.py ^
   --e_layers 2 ^
   --patch_len 16 ^
   --stride 8 ^
-  --pm_variant channel_recent ^
+  --pm_variant hicr ^
   --pm_d_state 16 ^
   --pm_expand 2 ^
   --pm_d_conv 3 ^
