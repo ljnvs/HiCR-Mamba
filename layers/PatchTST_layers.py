@@ -1,3 +1,5 @@
+"""Shared patch forecasting helper layers used by the HiCR-Mamba implementation."""
+
 __all__ = ['Transpose', 'get_activation_fn', 'moving_avg', 'series_decomp', 'PositionalEncoding', 'SinCosPosEncoding', 'Coord2dPosEncoding', 'Coord1dPosEncoding', 'positional_encoding']           
 
 import torch

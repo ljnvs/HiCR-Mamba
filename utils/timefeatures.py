@@ -1,3 +1,5 @@
+"""Calendar time-feature encoders for benchmark data loaders."""
+
 from typing import List
 
 import numpy as np

@@ -1,3 +1,5 @@
+"""RevIN normalization layer used by HiCR-Mamba."""
+
 import torch
 import torch.nn as nn
 

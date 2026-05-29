@@ -1,3 +1,5 @@
+"""Training utilities for HiCR-Mamba experiments."""
+
 import numpy as np
 import torch
 import matplotlib.pyplot as plt

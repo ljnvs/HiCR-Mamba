@@ -1,3 +1,5 @@
+"""Evaluation metrics for forecasting results."""
+
 import numpy as np
 
 
