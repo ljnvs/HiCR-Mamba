@@ -48,7 +48,7 @@ parser.add_argument('--individual', type=int, default=0, help='individual head; 
 
 # HiCR-Mamba
 parser.add_argument('--pm_variant', type=str, default='base',
-                    choices=['base', 'hicr', 'channel_recent', 'channel_gate', 'recent_state'],
+                    choices=['base', 'hicr', 'channel_gate', 'recent_state'],
                     help='HiCR-Mamba variant; hicr is the full Channel-Recent Adapter model')
 parser.add_argument('--pm_d_state', type=int, default=16, help='HiCR-Mamba selective state size')
 parser.add_argument('--pm_expand', type=int, default=2, help='HiCR-Mamba inner expansion ratio')

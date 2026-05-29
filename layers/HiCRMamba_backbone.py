@@ -452,7 +452,6 @@ class HiCRMambaBackbone(nn.Module):
         if self.revin:
             self.revin_layer = RevIN(c_in, affine=affine, subtract_last=subtract_last)
 
-        pm_variant = 'channel_recent' if pm_variant == 'hicr' else pm_variant
         self.patch_len = patch_len
         self.stride = stride
         self.padding_patch = padding_patch
@@ -486,7 +485,7 @@ class HiCRMambaBackbone(nn.Module):
             self.post_adapter = ChannelControlAdapter(d_model, c_in, pm_channel_rank, dropout)
         elif pm_variant == 'channel_gate_lite':
             self.post_adapter = LiteChannelControlAdapter(d_model, c_in, pm_channel_rank, dropout)
-        elif pm_variant == 'channel_recent':
+        elif pm_variant == 'hicr':
             self.post_adapter = ChannelRecentAdapter(d_model, c_in, pm_channel_rank, pm_recent_k, dropout)
         elif pm_variant == 'traffic_robust':
             self.post_adapter = TrafficRobustChannelRecentAdapter(d_model, c_in, pm_channel_rank, pm_recent_k, dropout)
@@ -520,7 +519,7 @@ class HiCRMambaBackbone(nn.Module):
         z = self.dropout(z + self.W_pos)
         z = self.encoder(z)
         z = torch.reshape(z, (-1, n_vars, z.shape[-2], z.shape[-1]))
-        if self.pm_variant in ('channel_gate', 'channel_gate_lite', 'channel_recent', 'traffic_robust', 'adaptive_recent'):
+        if self.pm_variant in ('channel_gate', 'channel_gate_lite', 'hicr', 'traffic_robust', 'adaptive_recent'):
             z = self.post_adapter(z)
         elif self.pm_variant in ('recent_state', 'multiscale_state'):
             z = torch.reshape(z, (-1, z.shape[-2], z.shape[-1]))

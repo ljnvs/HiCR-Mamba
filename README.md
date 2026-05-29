@@ -22,6 +22,7 @@ For component-level checks, `pm_variant=base` uses only the plain selective patc
 ```text
 .
 |-- data_provider/          # dataset loaders
+|-- datasets/               # gzip-compressed benchmark files
 |-- exp/                    # training/evaluation loop
 |-- layers/                 # HiCR-Mamba backbone and helper layers
 |-- models/                 # model wrapper
